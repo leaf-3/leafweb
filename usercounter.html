@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>usercounter</title>
+	<link rel="stylesheet" type="text/css" href="./layui/css/layui.css">
+	<script type="text/javascript" src="./js/jquery-2.1.0.js"></script>
+	<script type="text/javascript" src="./layui/layui.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/common.css">
+</head>
+<body class="layui-layout-body" style="background-color: #F2F2F2;">
+    <div class="layui-layout layui-layout-admin">
+      <div class="layui-header" style="background-color:#327889">
+        <div class="layui-logo"><a href="index.html" style="color: white;"> 会议室预约系统</a></div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left" lay-filter="left_top_nav">
+          <li class="layui-nav-item"><a href="javascript:;">可预约会议室</a></li>
+          <li class="layui-nav-item"><a href="">申请预约</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">我的预约</a></li>
+        </ul>
+        <ul class="layui-nav layui-layout-right" lay-filter="right_top_nav">
+          <li class="layui-nav-item">
+            <a href="javascript:;">
+              <img src="./layui/images/face/0.gif" class="layui-nav-img">
+              <span id="u_name"></span>
+            </a>
+            <dl class="layui-nav-child">
+              <dd><a href="">基本资料</a></dd>
+              <dd><a href="">安全设置</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item"><a href="javascript:;">注销</a></li>
+        </ul>
+      </div>
+      
+      <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div>
+		    <div class="layui-container">
+				<div class="layui-row">
+					<div class="layui-col-md2" style="border: 1px solid white;">
+    					<div class="layui-box" style="padding: 10px;">
+    						<div class="layui-inline">
+    							<img class="t_header" class="img a" src="images/用户中心/u50.svg">
+    							<p class="t_detail">
+    								<span class="layui-inline" id="s_account"></span>
+    								<span class="layui-inline" id="s_user"></span>
+    								<span class="layui-inline">教师</span>
+    							</p>
+    						</div>
+    					</div>
+    					<div class="layui-box">
+    						<div class="layui-inline">
+    							<div class="left_top_nav">
+    								<ul>
+										<li><a href="">可预约会议室></a></li>
+										<li><a href="">我的预约></a></li>
+										<li><a href="">申请预约></a></li>
+									</ul>				
+    							</div>
+    						</div>
+    					</div>
+    					<div class="layui-box">
+    						<div class="layui-inline">
+    							<div class="left_bottom_nav">
+    								<ul>
+										<li><a href="">切换到管理员></a></li>
+										<li><a href="">注销></a></li><br />
+									</ul>				
+    							</div>
+    						</div>
+    					</div>
+					</div>
+					<div class="layui-col-md10" style="border: 1px solid white;">
+						<div class="layui-card" >
+						  	<div class="layui-card-header">可预约会议室</div>
+						  	<div class="layui-card-body">
+						    	<div id="tabledata"></div>
+						    	<script type="text/html" id="toolrow">
+			  						<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+			  					</script>
+						  	</div>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+      </div>
+      
+      <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        @常熟理工学院计算机学院
+      </div>
+    </div>
+	<script type="text/javascript">
+		$(function(){
+            var user=sessionStorage.user;
+            var account=sessionStorage.account;
+            $('#u_name').text(user);
+            $('#s_user').text(user);
+            $('#s_account').text(account);
+        });
+		layui.use(['element','table'],function(){
+			var element=layui.element,
+			table=layui.table;
+			table.render({
+		        elem: '#tabledata'
+		        ,data:[
+		        {id:1,adress:"九楼s502",meetname:"会议室1",nums:500,shebei:"投影仪"},
+		        {id:1,adress:"九楼s502",meetname:"会议室1",nums:500,shebei:"投影仪"},
+		        {id:1,adress:"九楼s502",meetname:"会议室1",nums:500,shebei:"投影仪"},
+		        {id:1,adress:"九楼s502",meetname:"会议室1",nums:500,shebei:"投影仪"}
+		        ]
+		        ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+		        ,page: true
+		        ,id:'utable'
+		        ,cols: [[
+		        ,{field:'id',title: '#'}
+		        ,{field:'adress', title: '会议地址'}
+		        ,{field:'meetname', title: '会议名称'}
+		        ,{field:'nums', title: '容量'}
+		        ,{field:'shebei',title: '设备'}
+		        ,{field:'right', title: '可预约情况',toolbar: '#toolrow'}
+		        ]]
+		    });
+		});
+	</script>
+</body>
+</html>
