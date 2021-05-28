@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>会议室预约系统</title>
+  <script type="text/javascript" src="./js/jquery-2.1.0.js"></script>
+  <script type="text/javascript" src="./js/login.js"></script>
+  <link rel="stylesheet" type="text/css" href="./layui/css/layui.css">
+  <script type="text/javascript" src="./layui/layui.js"></script>
+  <link rel="stylesheet" type="text/css" href="./css/common.css">
+</head>
+<body style="background-color: #F2F2F2;">
+  <div id="loginbox"></div>
+    <div class="layui-layout layui-layout-admin">
+      <div class="layui-header" style="background-color:#327889">
+        <div class="layui-logo">会议室预约系统</div>
+      </div>
+      
+      <div style="padding: 20px;">
+        <div class="layui-row layui-col-space15">
+    	  <div class="layui-col-md1"></div>
+          <div class="layui-col-md4">
+            <div class="layui-card">
+              <div class="layui-card-header">会议室预约管理规定</div>
+              <div class="layui-card-body">
+                <br />为规范和加强报告厅、会议室使用与管理，提高使用效率，报告厅、会议室实行网上预约管理，特制订本规定如下：
+                <br /><br />
+                1、报告厅、会议室实行网上预约使用与管理。
+                <br /><br />
+                2、报告厅、会议室预约时段为：8:00-12:00，14:00-18:00， 19:00-22:00，超时段使用应在预约登记时做好备注说明。(提示：预约时间必须落在系统划定时间段内，时间需按照系统原有时间格式输入）
+                <br /><br />
+                3、如报告厅、会议室多媒体设备使用前发生故障、损坏或配件丢失，要及时上报党政综合办公室，未及时上报发现后责任一律由最后使用人承担。<br /><br /><br />
+              </div>
+            </div>
+          </div>
+    	  <div class="layui-col-md1"></div>
+          <div class="layui-col-md5">
+            <div class="layui-card">
+              <div class="layui-tab layui-tab-card">
+                <ul class="layui-tab-title">
+                  <li class="layui-this">用户登录</li>
+                  <li>管理员登录</li>
+                </ul>
+                <div class="layui-tab-content">
+                  <div class="layui-tab-item layui-show">
+    				<div class="layui-form-item">
+    					<div class="layui-input-inline" style="width: 20%;">
+    						<label class="layui-form-label">用户名</label>
+    					</div>
+    					<div class="layui-input-inline" style="width: 65%;">
+    						<input type="text" name="username" required lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
+    					</div>
+    					<div class="layui-input-inline" style="width: 20%;">
+    						<label class="layui-form-label">密码</label>
+    					</div>
+    					<div class="layui-input-inline" style="width: 65%;">
+    						<input type="password" name="us_password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input"><br /><br />
+    					</div>
+    					<div class="login-btn">
+    						<button lay-submit lay-filter="login" class="layui-btn" onclick="userlogin();">登录</button>
+    					</div>
+    				</div>
+    			  </div>
+                  <div class="layui-tab-item">
+    				  <div class="layui-form-item">
+    				  	<div class="layui-input-inline" style="width: 20%;">
+    				  		<label class="layui-form-label">编号</label>
+    				  	</div>
+    				  	<div class="layui-input-inline" style="width: 65%;">
+    				  		<input type="text" name="account" required lay-verify="required" placeholder="管理员编号" autocomplete="off" class="layui-input">
+    				  	</div>
+    				  	<div class="layui-input-inline" style="width: 20%;">
+    				  		<label class="layui-form-label">密码</label>
+    				  	</div>
+    				  	<div class="layui-input-inline" style="width: 65%;">
+    				  		<input type="password" name="ad_password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input"><br /><br />
+    				  	</div>
+    				  	<div class="login-btn">
+    				  		<button lay-submit lay-filter="login" class="layui-btn" onclick="adminlogin();">登录</button>
+    				  	</div>
+    				  </div>
+    			  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div> 
+      
+      <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        @常熟理工学院计算机学院
+      </div>
+    </div>
+    <script src="layui/layui.js"></script>
+    <script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+      var element = layui.element;
+    });
+    </script>
+</body>
+
+</html>
