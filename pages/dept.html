@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>部门管理</title>
+	<link type="text/css" rel="stylesheet" href="../layui/css/layui.css">
+    <script type="text/javascript" src="../layui/layui.js"></script>
+	<script type="text/javascript" src="../js/pages/dept.js"></script>
+</head>
+<body>
+	<div class="layui-fluid">
+		<div class="layui-row">
+			<div class="layui-col-md2">
+				<div id="tree-dept"></div>
+			</div>
+			<div class="layui-col-md10">
+				<div id="table-dept" lay-filter="table-dept"></div>
+				<script type="text/html" id="toolbarHead">
+				  <div class="layui-btn-container">
+				    <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+				    <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+				    <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+				  </div>
+				</script>
+				 
+				<script type="text/html" id="barRow">
+				  <a class="layui-btn layui-btn-xs" lay-event="auth">授权</a>
+				  <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit">编辑</a>
+				  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+				</script>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
